@@ -1,0 +1,5 @@
+Flask
+Flask-SQLAlchemy
+Flask-Admin
+psycopg2-binary
+Flask-Testing

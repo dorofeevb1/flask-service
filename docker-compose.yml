@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:  # Environment variables for the Flask web service
+      - SECRET_KEY=default-secret-key
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:qwerty@db/flask_service  # Database connection URI
+
+  db:
+    image: postgres
+    environment:  # Environment variables for the PostgreSQL database service
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=qwerty
+      - POSTGRES_DB=flask_service
